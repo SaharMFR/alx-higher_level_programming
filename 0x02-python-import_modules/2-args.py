@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    
+
     nArgs = len(sys.argv) - 1
 
     if nArgs == 0:
