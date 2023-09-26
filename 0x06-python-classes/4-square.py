@@ -23,7 +23,7 @@ class Square:
     def size(self):
         """To retrieve the private instance attribute 'size'."""
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """To set the private instance attribute 'size'."""
