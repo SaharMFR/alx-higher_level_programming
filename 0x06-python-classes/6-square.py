@@ -20,6 +20,9 @@ class Square:
         else:
             self.__position = position
 
+    def __str__(self):
+        self.my_print()
+
     def area(self):
         """Returns the current square area."""
         return (self.__size ** 2)
