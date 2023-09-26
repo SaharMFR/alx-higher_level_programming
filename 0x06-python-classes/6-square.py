@@ -20,9 +20,6 @@ class Square:
         else:
             self.__position = position
 
-    def __str__(self):
-        self.my_print()
-
     def area(self):
         """Returns the current square area."""
         return (self.__size ** 2)
@@ -64,7 +61,9 @@ class Square:
     @position.setter
     def position(self, value):
         """To set the private instance attribute 'position'."""
-        if type(value) is not tuple:
+        if type(value) is not tuple or len(value) != 2\
+                or any(type(n) is not int for n in value)\
+                or any(n < 0 for n in value):
             raise TypeError('position must be a tuple of 2 positive integers')
         else:
             self.__position = value
