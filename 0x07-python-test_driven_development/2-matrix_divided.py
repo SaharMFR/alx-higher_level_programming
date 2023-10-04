@@ -29,12 +29,13 @@ def matrix_divided(matrix, div):
                 of integers/floats')
     for i in range(len(matrix)):
         if len(matrix[0]) != len(matrix[i]):
-            raise TypeError('Each row of the matrix must have the same size')
+            raise TypeError('Each row of the matrix '
+                    'must have the same size')
         new_matrix.append([])
         for j in range(len(matrix[0])):
             if type(matrix[i][j]) is not int \
                     and type(matrix[i][j]) is not float:
-                raise TypeError('matrix must be a matrix \
-                        (list of lists) of integers/floats')
+                raise TypeError('matrix must be a matrix '
+                        '(list of lists) of integers/floats')
             new_matrix[i].append(round(matrix[i][j] / div, 2))
     return new_matrix
