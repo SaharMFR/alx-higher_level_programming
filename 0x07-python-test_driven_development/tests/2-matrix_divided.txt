@@ -103,6 +103,12 @@ matrix= list of lists of integers with one None / div= integer:
         Traceback (most recent call last):
         TypeError: matrix must be a matrix (list of lists) of integers/floats
 
+matrix= None / div= integer => TypeError matrix must be a matrix (list of lists) of integers/floats:
+        >>> matrix = None
+        >>> print(matrix_divided(matrix, 2))
+        Traceback (most recent call last):
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
 matrix= list of lists of integers with one None / div= None:
         >>> matrix = [
         ...     [None, 2, 3],
