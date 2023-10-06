@@ -1,0 +1,45 @@
+========================================
+Test cases for 5-text_indentation module
+========================================
+
+The module defines a function that prints a text with 2 new lines after each of these characters:
+'.' and '?' and ':'
+``text_indentation(text)``
+
+Usage
+=====
+
+Importing function from module:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+text= string:
+	>>> text_indentation("Hello! How are you? sihgsh: shigu xhiuh, sihg. shughs")
+	Hello! How are you?
+	<BLANKLINE>
+	sihgsh:
+	<BLANKLINE>
+	shigu xhiuh, sihg.
+	<BLANKLINE>
+	shughs
+
+text= not string => TypeError: text must be a string:
+	>>> text_indentation(5)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+text= string with blank line:
+	>>> text_indentation("Hello! \n\n How are you? sihgs. soihg: goibhd")
+	Hello! 
+	<BLANKLINE>
+	How are you?
+	<BLANKLINE>
+	sihgs.
+	<BLANKLINE>
+	soihg:
+	<BLANKLINE>
+	goibhd
+
+missing one argument:
+	>>> text_indentation()
+	Traceback (most recent call last):
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
