@@ -24,7 +24,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError('division by zero')
     if type(div) is not int and type(div) is not float:
         raise TypeError('div must be a number')
-    if type(matrix) is not list or \
+    if matrix == [] or type(matrix) is not list or \
             not all(type(row) is list for row in matrix):
         raise TypeError('matrix must be a matrix (list of lists) '
                         'of integers/floats')
