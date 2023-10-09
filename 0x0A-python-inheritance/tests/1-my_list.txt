@@ -1,0 +1,53 @@
+===============================
+Test cases for 1-my_list module
+===============================
+
+The module defines a class `MyList` that inherits from `list`
+The class has a function to print the list sorted (ascending order).
+``print_sorted(self)``
+
+------------------------------------------------------------------
+Importing the class from module:
+
+	>> MyList = __import__('1-my_list').MyList
+	>>
+------------------------------------------------------------------
+List of positive integers appended one by one:
+
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>>
+------------------------------------------------------------------
+List of positive integers:
+
+	>>> ls = [2, 8, 3, 7, 1]
+	>>> my_ls = MyList(ls)
+	>>> my_ls.print_sorted()
+	[1, 2, 3, 7, 8]
+	>>>
+------------------------------------------------------------------
+List of negative and positive numbers:
+
+	>>> ls = [5, -3, -9, 4, -1]
+        >>> my_ls = MyList(ls)
+        >>> my_ls.print_sorted()
+        [-9, -3, -1, 4, 5]
+	>>>
+------------------------------------------------------------------
+Empty list:
+
+	>>> ls = []
+	>>> my_ls = MyList(ls)
+	>>> my_ls.print_sorted()
+	[]
+	>>>
