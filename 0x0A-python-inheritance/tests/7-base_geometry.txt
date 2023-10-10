@@ -40,6 +40,10 @@ Checking for integer < 0;
         ValueError: integer must be greater than 0
 
 Checking for non-integer types:
+	>>> obj.integer_validator("None", None)
+	Traceback (most recent call last):
+	...
+	TypeError: None must be an integer
 	>>> obj.integer_validator("bool", True)
 	Traceback (most recent call last):
         ...
