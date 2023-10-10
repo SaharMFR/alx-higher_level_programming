@@ -11,4 +11,4 @@ def class_to_json(obj):
     (list, dictionary, string, integer and boolean) for JSON serialization
     of an object.
     """
-    return obj.__dic__
+    return obj.__dict__
