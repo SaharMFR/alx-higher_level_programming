@@ -12,5 +12,5 @@ class Student:
 
     def to_json(self, attrs=None):
         if type(attrs) is list and all(type(a) is str for a in attrs):
-            return {k: self.__dict__[k] for k in self.__dict__.keys() & attr}
+            return {k: self.__dict__[k] for k in self.__dict__.keys() & attrs}
         return self.__dict__
