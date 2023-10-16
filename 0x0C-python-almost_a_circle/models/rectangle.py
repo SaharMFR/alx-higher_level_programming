@@ -88,7 +88,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
-        if args and len(args):
+        if args and len(args) != 0:
             i = 0
             for arg in args:
                 if i == 0:
@@ -105,7 +105,7 @@ class Rectangle(Base):
                 elif i == 4:
                     self.y = arg
                 i += 1
-        elif kwarags and len(kwargs):
+        elif kwarags and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
                     if value is not None:
