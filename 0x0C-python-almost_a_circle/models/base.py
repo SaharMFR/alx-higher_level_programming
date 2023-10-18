@@ -33,3 +33,10 @@ class Base:
                 f.write(Base.to_json_string(list_dictionaries))
             else:
                 f.write("[]")
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation `json_string`"""
+        if json_string and json_string != "[]":
+            return json.loads(json_string)
+        return []
