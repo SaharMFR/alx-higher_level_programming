@@ -84,7 +84,7 @@ class Base:
             else:
                 f.write("[]")
 
-    @classmethods
+    @classmethod
     def load_from_file_csv(cls):
         """
         Returns the deserialized CSV serialization in the file called
