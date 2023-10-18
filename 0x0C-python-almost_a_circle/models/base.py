@@ -101,8 +101,8 @@ class Base:
                     keys = ['id', 'size', 'x', 'y']
                 dictionaries = csv.DictReader(f, keys)
                 for d in dictionaries:
-                    for key, value in d.items():
-                        list_dicts.append(dict([key, int(value)]))
+                    list_dicts.append(dict([key, int(value)]
+                                           for key, value in d.items()))
                 for dictionary in list_dicts:
                     list_instances.append(cls.create(**dictionary))
         return list_instances
