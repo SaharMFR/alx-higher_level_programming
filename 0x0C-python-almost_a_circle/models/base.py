@@ -3,6 +3,7 @@
 
 import json
 import os
+import csv
 
 
 class Base:
@@ -66,3 +67,19 @@ class Base:
                 for d in list_dictionaries:
                     list_instances.append(cls.create(**d))
         return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the CSV serilization of `list_objs` to a file"""
+        f_name = cls.__name__ + ".csv"
+        with open(f_name, 'w', newline='') as f:
+            if list_objs and list_objs != []:
+                if cls.__name__ == 'Rectangle':
+                    keys = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    keys = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(f, fieldnames=keys)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+            else:
+                f.write("[]")
