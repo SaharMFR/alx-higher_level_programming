@@ -57,7 +57,7 @@ class Base:
     def load_from_file(cls):
         """
         Returns a list of instances in the json file called
-        `<Class name>.json`
+        `<Class name>.json`.
         """
         f_name = cls.__name__ + ".json"
         list_instances = []
@@ -83,3 +83,26 @@ class Base:
                     writer.writerow(obj.to_dictionary())
             else:
                 f.write("[]")
+
+    @classmethods
+    def load_from_file_csv(cls):
+        """
+        Returns the deserialized CSV serialization in the file called
+        `<Class name>.csv`.
+        """
+        f_name = cls.__name__ + ".csv"
+        list_instances = []
+        list_dicts = []
+        if os.path.exists(f_name):
+            with open(f_name, 'r', newline='') as f:
+                if cls.__name__ == 'Rectangle':
+                    keys = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    keys = ['id', 'size', 'x', 'y']
+                dictionaries = csv.DictReader(f, keys)
+                for d in dictionaries:
+                    for key, value in d.items():
+                        list_dicts.append(dict([key, int(value)]))
+                for dictionary in list_dicts:
+                    list_instances.append(cls.create(**dictionary))
+        return list_instances
