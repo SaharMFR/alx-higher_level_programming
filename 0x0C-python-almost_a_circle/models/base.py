@@ -2,6 +2,7 @@
 """Defines a base class"""
 
 import json
+import os
 
 
 class Base:
@@ -50,3 +51,18 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances in the json file called
+        `<Class name>.json`
+        """
+        f_name = cls.__name__ + ".json"
+        list_instances = []
+        if os.path.exists(f_name):
+            with open(f_name, 'r') as f:
+                list_dictionaries = Base.from_json_string(f.read())
+                for d in list_dictionaries:
+                    list_instances.append(cls.create(**d))
+        return list_instances
