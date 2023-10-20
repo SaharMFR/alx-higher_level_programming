@@ -106,3 +106,44 @@ class Base:
                 for dictionary in list_dicts:
                     list_instances.append(cls.create(**dictionary))
         return list_instances
+
+    @staticemethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares
+        using the Turtle graphics module
+        """
+        t = turtle.Turtle()
+        t.screen.bgcolor("#1175ab")
+        t.pensize(3)
+        t.shape("turtle")
+
+        t.color("#ffffff")
+
+        for rectangle in list_rectangles:
+            t.showturtle()
+            t.up()
+            t.goto(rectangle.x, rectangle.y)
+            t.down()
+            for i in range(2):
+                t.forward(rectangle.width)
+                t.left(90)
+                t.forward(rectangle.height)
+                t.left(90)
+            t.hideturtle()
+
+        t.color("#000000")
+
+        for square in list_squares:
+            t.showturtle()
+            t.up()
+            t.goto(square.x, square.y)
+            t.down()
+            for i in range(2):
+                t.forward(square.width)
+                t.left(90)
+                t.forward(square.height)
+                t.left(90)
+            t.hideturtle()
+
+        turtle.exitonclick()
