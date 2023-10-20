@@ -24,3 +24,6 @@ class testBase(unittest.TestCase):
     def test_zero_id(self):
         b = Base(0)
         self.asserEqual(b.id, 0)
+
+if __name__ == "__main__":
+    unittest.main()

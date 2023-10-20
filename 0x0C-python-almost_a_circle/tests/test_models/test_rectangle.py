@@ -68,3 +68,6 @@ class testRectangle(unittest.TestCase):
 
     def test_inheritence(self):
         self.asserIsInstance(Rectangle(8, 5), Base)
+
+if __name__ == "__main__":
+    unittest.main()
