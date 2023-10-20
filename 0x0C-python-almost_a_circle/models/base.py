@@ -107,7 +107,7 @@ class Base:
                     list_instances.append(cls.create(**dictionary))
         return list_instances
 
-    @staticemethod
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """
         Opens a window and draws all the Rectangles and Squares
