@@ -13,13 +13,13 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3])
     cursor = db.cursor()
     searched = argv[4]
-    cursor.execute("SELECT cities.name FROM cities JOIN states \
+    cursor.execute("SELECT cities.name FROM cities INNER JOIN states \
                     ON states.id = cities.state_id WHERE \
                     states.name =  %s", (searched,))
     selected = cursor.fetchall()
 
-    for record in selected:
-        print(record)
+    temp_list = list(selected[0] for record in selected)
+    print(*temp_list, sep=", ")
 
     cursor.close()
     db.close()
