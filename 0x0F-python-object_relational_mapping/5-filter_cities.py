@@ -14,8 +14,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
     searched = argv[4]
     cursor.execute("SELECT cities.name FROM cities JOIN states \
-                    ON states.id = cities.state_id WHERE states.name =  %s \
-                    ORDER BY cities.id", (searched,))
+                    ON states.id = cities.state_id WHERE \
+                    states.name =  %s", (searched,))
     selected = cursor.fetchall()
 
     for record in selected:
