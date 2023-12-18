@@ -18,7 +18,7 @@ if __name__ == "__main__":
                     states.name =  %s", (searched,))
     selected = cursor.fetchall()
 
-    temp_list = list(selected[0] for record in selected)
+    temp_list = list(record[0] for record in selected)
     print(*temp_list, sep=", ")
 
     cursor.close()
