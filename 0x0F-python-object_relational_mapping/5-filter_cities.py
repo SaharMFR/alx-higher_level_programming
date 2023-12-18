@@ -14,7 +14,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
     searched = argv[4]
     cursor.execute("SELECT cities.name FROM cities JOIN states \
-                    ON states.id = cities.state_id WHERE states.name LIKE %s \
+                    ON states.id = cities.state_id WHERE states.name =  %s \
                     ORDER BY cities.id", (searched,))
     selected = cursor.fetchall()
 
