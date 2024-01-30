@@ -12,7 +12,7 @@ request.get(url, (err, response, data) => {
   }
 });
 
-const charsInOrder = function(chars, i) {
+const charsInOrder = function (chars, i) {
   if (i === chars.length) return;
   request(chars[i], (err, response, data) => {
     if (err) {
